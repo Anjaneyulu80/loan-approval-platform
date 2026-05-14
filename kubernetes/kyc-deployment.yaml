@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: kyc-service
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: kyc-service
+
+  template:
+    metadata:
+      labels:
+        app: kyc-service
+
+    spec:
+      containers:
+      - name: kyc-service
+
+        image: loan/kyc-service:latest
+
+        ports:
+        - containerPort: 8082
